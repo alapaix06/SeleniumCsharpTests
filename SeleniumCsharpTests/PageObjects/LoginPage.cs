@@ -23,22 +23,22 @@ public class LoginPage
     //PageFactory annotation to locate the sign in button
     [FindsBy(How = How.Id, Using = "signInBtn")]
     [CacheLookup]
-    private IWebElement ButtonSignIn;
+    private IWebElement _buttonSignIn;
 
     //PageFactory annotation to locate the password input
     [FindsBy(How = How.Id, Using = "password")]
     [CacheLookup]
-    private IWebElement Password;
+    private IWebElement _passwordInput;
 
     //PageFactory annotation to locate the terms check
     [FindsBy(How = How.Id, Using = "terms")]
     [CacheLookup]
-    private IWebElement Terms;
+    private IWebElement _termsCheckbox;
 
     // PageFactory annotation to locate the username input
     [FindsBy(How = How.Id, Using = "username")]
     [CacheLookup]
-    private IWebElement Username;
+    private IWebElement _usernameInput;
 
     /// <summary>
     ///     Method to perform a valid login by entering the given username, password and accepting the terms
@@ -46,12 +46,12 @@ public class LoginPage
     /// <param name="user">Username to login</param>
     /// <param name="pass">Password to login</param>
     /// <returns>ProductsPage object representing the products page after login</returns>
-    public ProductsPage ValidLogin(string user, string pass)
+    public ProductsPage PerformValidLogin(string user, string pass)
     {
-        Username.SendKeys(user);
-        Password.SendKeys(pass);
-        Terms.Click();
-        ButtonSignIn.Click();
+        _usernameInput.SendKeys(user);
+        _passwordInput.SendKeys(pass);
+        _termsCheckbox.Click();
+        _buttonSignIn.Click();
         return new ProductsPage(_driver);
     }
 }

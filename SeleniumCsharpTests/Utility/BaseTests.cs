@@ -1,52 +1,79 @@
-﻿using Newtonsoft.Json;
+﻿using AventStack.ExtentReports;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using Optional;
+using SeleniumCsharpTests.Utility.ExtentReportConfig;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
 namespace SeleniumCsharpTests.Utility;
 
+/// <summary>
+/// Base class for setting up and tearing down browser tests
+/// </summary>
+[TestFixture]
 public class BaseTests
 {
+    //Thread-local driver instance
+     private readonly ThreadLocal<IWebDriver> _driver = new ThreadLocal<IWebDriver>();
+    
+    //Option for browser name
+    private Option<string> _browserName;
+    
+    //Timeout in seconds
     private readonly int _seconds = 5;
-    private IWebDriver _webDriver;
+    
+    //Default browser name
+    private readonly string _defaultBrowser = "Chrome";
 
     /// <summary>
-    ///     Method to set up the test environment before each test case
+    /// One-time setup method for Extent Reports
     /// </summary>
-    [SetUp]
-    public void SetUp()
+    [OneTimeSetUp]
+    public void SetUpTearDown()
+    {
+        ExtentTestManager.CreateParentTest(GetType().Name, Option.None<string>());
+    }
+    
+    /// <summary>
+    /// Sets up the browser configuration and navigates to the URL
+    /// </summary>
+    /// <param name="url">The URL to navigate to</param>
+    protected void BrowserConfig(string url)
     {
         try
         {
             // Set up the driver and navigate to the URL
-            MultiplesBrowsers("Chrome");
-            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(_seconds);
-            _webDriver.Manage().Window.Maximize();
-            _webDriver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
+            _browserName = Option.Some(TestContext.Parameters["browserName"] ?? _defaultBrowser);
+            _browserName.Match(
+                some: name => MultiplesBrowsers(name),
+                none: () => TestContext.Progress.WriteLine("Error: Invalid browser name")
+            );
+            _driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(_seconds);
+            _driver.Value.Manage().Window.Maximize();
+            _driver.Value.Url = url;
         }
         catch (Exception e)
         {
-            // Print error message and fail the test if there is an exception
-            TestContext.Progress.WriteLine("Test Fail in SetUp: " + e.Message);
-            Assert.Fail("Test fail in SetUp: " + e.Message);
+            Assert.Fail($"Test fail in SetUp:  {e.Message}");
         }
     }
-
+    
     /// <summary>
-    ///     Method to get the current driver instance
+    ///  Method to get the current driver instance
     /// </summary>
     /// <returns>The current driver instance</returns>
     protected IWebDriver GetDriver()
     {
-        return _webDriver;
+        return _driver.Value;
     }
 
     /// <summary>
-    ///     Method to set up different web drivers based on the input browser name
+    ///  Method to set up different web drivers based on the input browser name
     /// </summary>
     /// <param name="browser">The name of the browser to set up</param>
     /// <exception cref="ArgumentException">Thrown when an invalid browser name is provided</exception>
@@ -56,15 +83,15 @@ public class BaseTests
         {
             case "Chrome":
                 new DriverManager().SetUpDriver(new ChromeConfig());
-                _webDriver = new ChromeDriver();
+                _driver.Value = new ChromeDriver();
                 break;
             case "Firefox":
                 new DriverManager().SetUpDriver(new FirefoxConfig());
-                _webDriver = new FirefoxDriver();
+                _driver.Value = new FirefoxDriver();
                 break;
             case "Edge":
                 new DriverManager().SetUpDriver(new EdgeConfig());
-                _webDriver = new EdgeDriver();
+                _driver.Value = new EdgeDriver();
                 break;
             default:
                 throw new ArgumentException("Invalid browser name provided.");
@@ -72,30 +99,71 @@ public class BaseTests
     }
 
     /// <summary>
-    /// 
+    /// Writes a message to the ExtentReport log, indicating whether a test has passed or failed, and captures a screenshot if the test failed.
     /// </summary>
-    /// <returns></returns>
-    protected static JsonReader GetDataParser()
+    protected void EndExtent()
     {
-        return new JsonReader();
-    }
+        // Get the test status and message
+        TestStatus status = TestContext.CurrentContext.Result.Outcome.Status;
+        string? message = TestContext.CurrentContext.Result.Message;
+        
+        // Format the message
+        message = message.SomeWhen(msg => !string.IsNullOrEmpty(msg))
+            .Match(
+                some: msg => string.Format("<pre>{0}</pre>", TestContext.CurrentContext.Result.Message),
+                none: () => ""
+            );
 
+        //switch in case fail, pass or skip
+        switch (status)
+        {
+            case TestStatus.Failed:
+                ReportLog.Fail("Fail Test", Option.None<MediaEntityModelProvider>());
+                ReportLog.Fail(message, Option.None<MediaEntityModelProvider>());
+                ReportLog.Fail("ScreenShot",CaptureFails(TestContext.CurrentContext.Test.Name).SomeNotNull());
+                break;
+            case TestStatus.Skipped:
+                ReportLog.Skip("Test Skipped");
+                break;
+            case TestStatus.Passed:
+                ReportLog.Pass("Test Pass");
+                break;
+        }
+    }
+    
     /// <summary>
-    ///  Method to tear down the test environment after each test case
+    /// Captures a screenshot of the current browser window and returns it as a MediaEntityModelProvider object.
     /// </summary>
-    [TearDown]
-    public void Down()
+    /// <param name="name">The name to give the screenshot.</param>
+    /// <returns>A MediaEntityModelProvider object containing the screenshot.</returns>
+    private MediaEntityModelProvider CaptureFails(string name)
+    {
+        string screenshot = ((ITakesScreenshot)_driver.Value).GetScreenshot().AsBase64EncodedString;
+
+        return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, name).Build();
+    } 
+    
+    /// <summary>
+    /// Closes the current WebDriver instance.
+    /// </summary>
+    protected void QuitBrowsers()
     {
         try
         {
-            // Quit the driver
-            _webDriver.Quit();
+            _driver.Value.Quit();
         }
         catch (Exception e)
         {
-            // Print error message and fail the test if there is an exception
-            TestContext.Progress.WriteLine("Test Fail in TearDown: " + e.Message);
             Assert.Fail("Test fail in TearDown: " + e.Message);
         }
+    }
+
+    /// <summary>
+    /// Flushes the ExtentReport log, indicating that all tests have been completed.
+    /// </summary>
+    [OneTimeTearDown]
+    public void TearDownExtent()
+    {
+        ExtentReportService.GetExtentReports().Flush();
     }
 }

@@ -4,18 +4,29 @@ using OpenQA.Selenium;
 using Optional;
 using SeleniumCsharpTests.PageObjects;
 using SeleniumCsharpTests.Utility;
+using SeleniumCsharpTests.Utility.ExtentReportConfig;
 
 namespace SeleniumCsharpTests.Tests
 {
-
-    public class ShopFacts : BaseTests
+    public sealed class ShopFacts : BaseTests
     {
         private Option<LoginPage> _loginPage = Option.None<LoginPage>();
-
+        
+        /// <summary>
+        ///  Method to set up the test environment before each test case
+        /// </summary>
+        [SetUp]
+        public void SetUp()
+        {
+            BrowserConfig("https://rahulshettyacademy.com/loginpagePractise/");
+            ExtentTestManager.CreateTest(TestContext.CurrentContext.Test.Name, Option.None<string>());
+        }
+        
         /// <summary>
         /// Test method to simulate an end-to-end shopping experience
         /// </summary>
-        [Test, TestCaseSource(nameof(GetDataFromJson))]
+        [Test]
+        [TestCaseSource(nameof(GetDataFromJson))]
         public void E2EFactory(string username, string password, string[] products, string countryCode,
             string expectedText)
         {
@@ -27,30 +38,30 @@ namespace SeleniumCsharpTests.Tests
                 _loginPage.Match(
                     some: loginPage =>
                     {
-                        ProductsPage productsPage = loginPage.ValidLogin(username, password);
+                        ProductsPage productsPage = loginPage.PerformValidLogin(username, password);
 
                         // Waits for the products page to load and stores the desired product names in an array
-                        productsPage.WaitForPageIsVisible();
+                        productsPage.WaitForPageToLoad();
 
                         // Iterates over the product cards and adds the desired products to the cart
-                        IList<IWebElement> cardProducts = productsPage.GetCards();
+                        IList<IWebElement> cardProducts = productsPage.GetAllCards();
                         cardProducts.Select(product => new
-                        { Element = product, Title = product.FindElement(productsPage.GetCardTitle()).Text })
+                        { Element = product, Title = product.FindElement(productsPage.GetCardTitleSelector()).Text })
                             .Where(x => products.Contains(x.Title))
                             .ToList()
-                            .ForEach(x => x.Element.FindElement(productsPage.ButtonAddCheckOut()).Click());
+                            .ForEach(x => x.Element.FindElement(productsPage.GetAddToCheckoutButtonSelector()).Click());
 
                         // Navigates to the checkout page and verifies that the correct products have been added to the cart
-                        CheckOutPage checkOutPage = productsPage.ClickOnCheckOut();
-                        string[] productsListCheck = checkOutPage.GetListProducts().Select(p => p.Text).ToArray();
+                        CheckoutPage checkOutPage = productsPage.ClickOnCheckoutButton();
+                        string[] productsListCheck = checkOutPage.GetProductsList().Select(p => p.Text).ToArray();
                         Assert.That(products, Is.EqualTo(productsListCheck));
 
                         // Navigates to the confirmation page, selects a country, agrees to the terms and conditions, and completes the purchase
-                        ConfirmPurchasedPage confirmPurchasedPage = checkOutPage.ClickOnButtonSuccess();
-                        confirmPurchasedPage.SelectCountry(countryCode);
-                        confirmPurchasedPage.GetCheckTerms().Click();
-                        confirmPurchasedPage.GetButtonFinish().Click();
-                        StringAssert.Contains(expectedText, confirmPurchasedPage.GetTextMessageFinish());
+                        ConfirmPurchasePage confirmPurchasePage = checkOutPage.ClickSuccessButton();
+                        confirmPurchasePage.SetCountryCodeAndSelect(countryCode);
+                        confirmPurchasePage.GetSelectorAcceptTerms().Click();
+                        confirmPurchasePage.GetSelectorFinishButton().Click();
+                        StringAssert.Contains(expectedText, confirmPurchasePage.GetFinishMessage());
 
                     },
                     none: () => throw new Exception("LoginPage is not initialized"));
@@ -65,7 +76,7 @@ namespace SeleniumCsharpTests.Tests
                 string errorMessage = $"Test Fail in execution: {e.Message}";
                 TestContext.Progress.WriteLine(errorMessage);
                 Assert.Fail(errorMessage);
-                throw new Exception(errorMessage, e);
+                throw new Exception(errorMessage);
             }
         }
 
@@ -94,7 +105,7 @@ namespace SeleniumCsharpTests.Tests
 
             // Loop through the test cases in the JSON object.
             foreach (JToken testCase in jsonObject["testCases"] ?? Enumerable.Empty<JToken>())
-            {
+            { 
                 // Extract the test data from the JSON object.
                 string username = testCase["username"]?.Value<string>() ?? String.Empty;
                 string password = testCase["password"]?.Value<string>() ?? String.Empty;
@@ -105,6 +116,16 @@ namespace SeleniumCsharpTests.Tests
                 // Create a new TestCaseData object and return it.
                 yield return new TestCaseData(username, password, products, countryCode, expectedText);
             }
+        }
+        
+        /// <summary>
+        ///  Method to tear down the test environment after each test case
+        /// </summary>
+        [TearDown]
+        public void Down()
+        {
+            EndExtent();
+            QuitBrowsers();
         }
     }
 }
