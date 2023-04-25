@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a392bb8-9fda-49da-bd39-1a3184c22708" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/PageObjects/ConfirmPurchasePage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/PageObjects/ConfirmPurchasePage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Reports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Reports/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Tests/ShopFacts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Tests/ShopFacts.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/BaseTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/BaseTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/ExtentReportConfig/ExtentTestManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/ExtentReportConfig/ExtentTestManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/JsonReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/JsonReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/bin/Debug/net6.0/SeleniumCsharpTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/bin/Debug/net6.0/SeleniumCsharpTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/bin/Debug/net6.0/SeleniumCsharpTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/bin/Debug/net6.0/SeleniumCsharpTests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/ref/SeleniumCsharpTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/ref/SeleniumCsharpTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/refint/SeleniumCsharpTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/refint/SeleniumCsharpTests.dll" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7061fa91bcc04f4e8b34c24ed49aa94a8600/0d/c67be681/Option`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7061fa91bcc04f4e8b34c24ed49aa94a8600/ea/99cb15ea/Option.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d98ab39435a64b7ea4444ccec63960e440e00/2b/24a11147/RoslynCompilerServiceBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/069aeaf19b8db10fe8b3b14e21593865f19ecfccd5d29c95131ec93202f1/SetUpTearDownCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2c98ac4189b6d4c45630c6165b8e43b4feb4a6bbb658a343f5660cfbcd0e556/MethodWrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/36349663d7195ab39cc6efc2b3a32aedaa7331551e9dceb94b6b991bde52b/SetUpTearDownItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/46a322d26154b982566e1817203e5452c91223f93b0e392d9c5b4806696fdc1/Assert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7f57eabcbac458cf4626a4c98a761414f5ed3895280f4d415e5cf53cc2abf/SimpleWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/86d9944d7dc6247b332d77355bfabdb7cd68928cf33921b80ea70c795ef7c26/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a6d621338a109ea7881bfdfc8c50c74d5ab7682e2ea32dc799324c41da1a819e/BeforeTestCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bef935dbb8608c28a19b77b647713b45d6233995c443988e8154ae9ef3ddd3c/ContextUtils.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c51a864e8438a181ed7952db6edbf1cddc97d42d1184147a1781b68be885441/DelegatingTestCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ca4271bab3e53b61f244a7ba081b39413d465de6262bbffb78775592f4228f5/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f536671e825030c7f17fbf3f75511651c281f2429edc8fd6ea660418f825949/BeforeAndAfterTestCommand.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OsjnlHOC32g3poJlG4H0GMyw9b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/admin/Library/Application Support/JetBrains/Rider2022.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/admin/Library/Application Support/JetBrains/Rider2022.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/admin/.local/share/Symbols/src&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a392bb8-9fda-49da-bd39-1a3184c22708" name="Changes" comment="" />
+      <created>1682356356343</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682356356343</updated>
+      <workItem from="1682356358419" duration="1556000" />
+      <workItem from="1682371346104" duration="858000" />
+      <workItem from="1682372349556" duration="157000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

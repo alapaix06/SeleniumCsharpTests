@@ -33,7 +33,7 @@
     <None Remove="PageObjects\" />
     <None Remove="Utility\" />
     <None Remove="Tests\" />
-    <None Update="Data\ShopData.json">
+    <None Update="Data\ShoppingTests\ShopData.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
