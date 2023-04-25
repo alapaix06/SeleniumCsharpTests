@@ -2,15 +2,17 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using Optional;
-using SeleniumCsharpTests.PageObjects;
-using SeleniumCsharpTests.Utility;
-using SeleniumCsharpTests.Utility.ExtentReportConfig;
+using Optional.Linq;
+using SeleniumCsharpTests.Pages;
+using SeleniumCsharpTests.Pages.Interfaces;
+using SeleniumCsharpTests.Utility.ReportManager;
 
 namespace SeleniumCsharpTests.Tests
 {
-    public sealed class ShopFacts : BaseTests
+    [TestFixture]
+    public sealed class ShoppingTest : BaseTests
     {
-        private Option<LoginPage> _loginPage = Option.None<LoginPage>();
+        private Option<ILoginPage> _loginPage = Option.None<ILoginPage>();
         
         /// <summary>
         ///  Method to set up the test environment before each test case
@@ -18,8 +20,8 @@ namespace SeleniumCsharpTests.Tests
         [SetUp]
         public void SetUp()
         {
-            BrowserConfig("https://rahulshettyacademy.com/loginpagePractise/");
             ExtentTestManager.CreateTest(TestContext.CurrentContext.Test.Name, Option.None<string>());
+            BrowserConfig("https://rahulshettyacademy.com/loginpagePractise/");
         }
         
         /// <summary>
@@ -33,31 +35,31 @@ namespace SeleniumCsharpTests.Tests
             try
             {
                 // Initializes the login page object and logs in with valid credentials
-                _loginPage = Option.Some(new LoginPage(GetDriver()));
-
+                _loginPage = Option.Some(new LoginPage(GetDriver())).Select(x => (ILoginPage)x);
+                
                 _loginPage.Match(
                     some: loginPage =>
                     {
-                        ProductsPage productsPage = loginPage.PerformValidLogin(username, password);
+                        IProductsPage  productsPage = loginPage.PerformValidLogin(username, password);
 
                         // Waits for the products page to load and stores the desired product names in an array
                         productsPage.WaitForPageToLoad();
 
                         // Iterates over the product cards and adds the desired products to the cart
-                        IList<IWebElement> cardProducts = productsPage.GetAllCards();
+                        IList<IWebElement> cardProducts = productsPage.GetAllProductCards();
                         cardProducts.Select(product => new
-                        { Element = product, Title = product.FindElement(productsPage.GetCardTitleSelector()).Text })
+                        { Element = product, Title = product.FindElement(productsPage.GetProductCardTitleSelector()).Text })
                             .Where(x => products.Contains(x.Title))
                             .ToList()
-                            .ForEach(x => x.Element.FindElement(productsPage.GetAddToCheckoutButtonSelector()).Click());
+                            .ForEach(x => x.Element.FindElement(productsPage.GetAddToCartButtonSelector()).Click());
 
                         // Navigates to the checkout page and verifies that the correct products have been added to the cart
-                        CheckoutPage checkOutPage = productsPage.ClickOnCheckoutButton();
-                        string[] productsListCheck = checkOutPage.GetProductsList().Select(p => p.Text).ToArray();
+                        ICheckoutPage  checkoutPage = productsPage.ClickOnCheckoutButton();
+                        string[] productsListCheck = checkoutPage.GetProductsList().Select(p => p.Text).ToArray();
                         Assert.That(products, Is.EqualTo(productsListCheck));
 
                         // Navigates to the confirmation page, selects a country, agrees to the terms and conditions, and completes the purchase
-                        ConfirmPurchasePage confirmPurchasePage = checkOutPage.ClickSuccessButton();
+                        IConfirmPurchasePage confirmPurchasePage = checkoutPage.ClickSuccessButton();
                         confirmPurchasePage.SetCountryCodeAndSelect(countryCode);
                         confirmPurchasePage.GetSelectorAcceptTerms().Click();
                         confirmPurchasePage.GetSelectorFinishButton().Click();
@@ -76,7 +78,6 @@ namespace SeleniumCsharpTests.Tests
                 string errorMessage = $"Test Fail in execution: {e.Message}";
                 TestContext.Progress.WriteLine(errorMessage);
                 Assert.Fail(errorMessage);
-                throw new Exception(errorMessage);
             }
         }
 
@@ -87,7 +88,7 @@ namespace SeleniumCsharpTests.Tests
         public static IEnumerable<TestCaseData> GetDataFromJson()
         {
             // Set the path to the JSON file containing the test data.
-            string path = "Utility/NewData.json";
+            string path = "Data/ShopData.json";
             string json;
 
             try

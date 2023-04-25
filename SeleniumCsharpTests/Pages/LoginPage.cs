@@ -1,12 +1,13 @@
 ﻿using OpenQA.Selenium;
+using SeleniumCsharpTests.Pages.Interfaces;
 using SeleniumExtras.PageObjects;
 
-namespace SeleniumCsharpTests.PageObjects;
+namespace SeleniumCsharpTests.Pages;
 
 /// <summary>
-///     Class representing the Login page of the website
+///  Class representing the Login page of the website
 /// </summary>
-public class LoginPage
+public class LoginPage : ILoginPage
 {
     private readonly IWebDriver _driver;
 
@@ -24,7 +25,7 @@ public class LoginPage
     [FindsBy(How = How.Id, Using = "signInBtn")]
     [CacheLookup]
     private IWebElement _buttonSignIn;
-
+        
     //PageFactory annotation to locate the password input
     [FindsBy(How = How.Id, Using = "password")]
     [CacheLookup]

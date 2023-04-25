@@ -1,9 +1,11 @@
 using System.Runtime.CompilerServices;
 using AventStack.ExtentReports;
+using NUnit.Framework;
 using Optional;
 
-namespace SeleniumCsharpTests.Utility.ExtentReportConfig
+namespace SeleniumCsharpTests.Utility.ReportManager
 {
+    [TestFixture]
     public sealed class ExtentTestManager
     {
         // Static variables declared with [ThreadStatic] attribute are stored separately 

@@ -1,12 +1,13 @@
 ﻿using OpenQA.Selenium;
+using SeleniumCsharpTests.Pages.Interfaces;
 using SeleniumExtras.PageObjects;
 
-namespace SeleniumCsharpTests.PageObjects
+namespace SeleniumCsharpTests.Pages
 {
     /// <summary>
     /// Page object for the checkout page
     /// </summary>
-    public class CheckoutPage
+    public class CheckoutPage : ICheckoutPage
     {
         private readonly IWebDriver _driver;
 

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace SeleniumCsharpTests.Utility
+namespace SeleniumCsharpTests.Utility.DataManager
 {
     public class JsonReader
     {
@@ -37,7 +37,7 @@ namespace SeleniumCsharpTests.Utility
             JToken jsonObject = JToken.Parse(myJsonString);
 
             // Select the specified token and return its string values as an array.
-            List<string> productsList = jsonObject.SelectTokens(tokenName).Values<string>().ToList();
+            List<string> productsList = jsonObject.SelectTokens(tokenName).Values<string>().ToList()!;
             return productsList.ToArray();
         }
     }

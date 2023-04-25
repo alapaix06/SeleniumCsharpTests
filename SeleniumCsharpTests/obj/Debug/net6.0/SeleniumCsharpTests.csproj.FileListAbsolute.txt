@@ -5,7 +5,6 @@
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/nunit.engine.api.dll
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/nunit.engine.core.dll
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/testcentric.engine.metadata.dll
-/Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/Utility/NewData.json
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/selenium-manager/linux/selenium-manager
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/selenium-manager/macos/selenium-manager
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/selenium-manager/windows/selenium-manager.exe
@@ -185,3 +184,4 @@
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/System.IO.Pipelines.dll
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/runtimes/win-x64/nativeassets/netcoreapp2.2/aspnetcorev2_inprocess.dll
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/runtimes/win-x86/nativeassets/netcoreapp2.2/aspnetcorev2_inprocess.dll
+/Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/Data/ShopData.json

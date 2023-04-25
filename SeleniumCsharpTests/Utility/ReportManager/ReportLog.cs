@@ -1,7 +1,7 @@
 using AventStack.ExtentReports;
 using Optional;
 
-namespace SeleniumCsharpTests.Utility.ExtentReportConfig;
+namespace SeleniumCsharpTests.Utility.ReportManager;
 
 public static class ReportLog
 {

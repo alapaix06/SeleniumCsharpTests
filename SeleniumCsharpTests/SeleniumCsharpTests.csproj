@@ -33,15 +33,12 @@
     <None Remove="PageObjects\" />
     <None Remove="Utility\" />
     <None Remove="Tests\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PageObjects\" />
-    <Folder Include="Utility\" />
-    <Folder Include="Tests\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Utility\NewData.json">
+    <None Update="Data\ShopData.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utility\" />
+    <Folder Include="Tests\" />
   </ItemGroup>
 </Project>

@@ -1,14 +1,15 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumCsharpTests.Pages.Interfaces;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 
-namespace SeleniumCsharpTests.PageObjects
+namespace SeleniumCsharpTests.Pages
 {
     /// <summary>
     /// This class represents the products page in an online store.
     /// </summary>
-    public class ProductsPage
+    public class ProductsPage : IProductsPage
     {
         private readonly By _addToCheckoutSelector = By.CssSelector(".btn-info");
         private readonly By _cardTitleSelector = By.CssSelector(".card-title a");
@@ -32,7 +33,7 @@ namespace SeleniumCsharpTests.PageObjects
             _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(6));
             PageFactory.InitElements(driver, this);
         }
-
+  
         /// <summary>
         /// Waits for the page to be fully loaded and visible in the browser.
         /// </summary>
@@ -52,7 +53,7 @@ namespace SeleniumCsharpTests.PageObjects
         /// Gets all product card elements on the page.
         /// </summary>
         /// <returns>A list of IWebElement elements representing the product cards on the page.</returns>
-        public IList<IWebElement> GetAllCards()
+        public IList<IWebElement> GetAllProductCards()
         {
             return _cardProducts;
         }
@@ -61,7 +62,7 @@ namespace SeleniumCsharpTests.PageObjects
         /// Gets the selector for the product card title.
         /// </summary>
         /// <returns>The By selector for the product card title.</returns>
-        public By GetCardTitleSelector()
+        public By GetProductCardTitleSelector()
         {
             return _cardTitleSelector;
         }
@@ -70,7 +71,7 @@ namespace SeleniumCsharpTests.PageObjects
         /// Gets the selector for the "Add to cart" button on the product card.
         /// </summary>
         /// <returns>The By selector for the "Add to cart" button.</returns>
-        public By GetAddToCheckoutButtonSelector()
+        public By GetAddToCartButtonSelector()
         {
             return _addToCheckoutSelector;
         }

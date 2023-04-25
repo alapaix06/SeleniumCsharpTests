@@ -3,7 +3,7 @@ using AventStack.ExtentReports.Reporter.Configuration;
 using Optional;
 using AventStack.ExtentReports;
 
-namespace SeleniumCsharpTests.Utility.ExtentReportConfig
+namespace SeleniumCsharpTests.Utility.ReportManager
 {
     /// <summary>
     /// A singleton class that provides an instance of the ExtentReports object for generating HTML reports.
