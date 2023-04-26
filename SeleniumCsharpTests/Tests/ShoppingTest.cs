@@ -47,7 +47,7 @@ namespace SeleniumCsharpTests.Tests
                         // Iterates over the product cards and adds the desired products to the cart
                         IList<IWebElement> cardProducts = productsPage.GetAllProductCards();
                         cardProducts.Select(product => new
-                        { Element = product, Title = product.FindElement(productsPage.GetProductCardTitleSelector()).Text })
+                        {Element = product, Title = product.FindElement(productsPage.GetProductCardTitleSelector()).Text })
                             .Where(x => products.Contains(x.Title))
                             .ToList()
                             .ForEach(x => x.Element.FindElement(productsPage.GetAddToCartButtonSelector()).Click());

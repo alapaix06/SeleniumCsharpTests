@@ -1,0 +1,25 @@
+﻿{
+  "testCases": [
+    {
+      "username": "rahulshettyacademy",
+      "password": "learning",
+      "products": [ "iphone X", "Blackberry" ],
+      "countryCode": "ind",
+      "textSuccess": "Success"
+    },
+    {
+      "username": "johanCastro",
+      "password": "learning",
+      "products": [ "iphone X", "Blackberry" ],
+      "countryCode": "ind",
+      "textSuccess": "Success"
+    },
+    {
+      "username": "Luis",
+      "password": "learning",
+      "products": [ "iphone X", "Blackberry" ],
+      "countryCode": "ind",
+      "textSuccess": "Success"
+    }
+  ]
+}

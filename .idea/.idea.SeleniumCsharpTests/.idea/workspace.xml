@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/SeleniumCsharpTests/Data/DataJson/ShopData.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7061fa91bcc04f4e8b34c24ed49aa94a8600/0d/c67be681/Option`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7061fa91bcc04f4e8b34c24ed49aa94a8600/ea/99cb15ea/Option.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d98ab39435a64b7ea4444ccec63960e440e00/2b/24a11147/RoslynCompilerServiceBase.cs" root0="SKIP_HIGHLIGHTING" />

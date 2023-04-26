@@ -184,4 +184,3 @@
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/System.IO.Pipelines.dll
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/runtimes/win-x64/nativeassets/netcoreapp2.2/aspnetcorev2_inprocess.dll
 /Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/runtimes/win-x86/nativeassets/netcoreapp2.2/aspnetcorev2_inprocess.dll
-/Users/admin/Documents/GitHub/SeleniumCsharpTests/SeleniumCsharpTests/bin/Debug/net6.0/Data/ShoppingTests/ShopData.json
