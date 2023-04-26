@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using Optional;
 using Optional.Linq;
-using SeleniumCsharpTests.Data.ShoppingTests;
+using SeleniumCsharpTests.Data.Models;
 using SeleniumCsharpTests.Pages;
 using SeleniumCsharpTests.Pages.Interfaces;
 using SeleniumCsharpTests.Utility.ReportManager;
@@ -28,7 +28,7 @@ namespace SeleniumCsharpTests.Tests
         /// Test method to simulate an end-to-end shopping experience
         /// </summary>
         [Test]
-        [TestCaseSource(typeof(ShoppingTestData), nameof(ShoppingTestData.GetDataFromJson), new object[]{"Data/ShoppingTests/ShopData.json"})]
+        [TestCaseSource(typeof(ShoppingModel), nameof(ShoppingModel.GetDataFromJson), new object[]{"Data/DataJson/ShopData.json"})]
         public void E2EFactory(string username, string password, string[] products, string countryCode, string expectedText)
         {
             try

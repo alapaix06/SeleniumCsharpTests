@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a392bb8-9fda-49da-bd39-1a3184c22708" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/PageObjects/ConfirmPurchasePage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/PageObjects/ConfirmPurchasePage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Reports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Reports/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Tests/ShopFacts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Tests/ShopFacts.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/BaseTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/BaseTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/ExtentReportConfig/ExtentTestManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/ExtentReportConfig/ExtentTestManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/JsonReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/Utility/JsonReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/bin/Debug/net6.0/SeleniumCsharpTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/bin/Debug/net6.0/SeleniumCsharpTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/bin/Debug/net6.0/SeleniumCsharpTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/bin/Debug/net6.0/SeleniumCsharpTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/SeleniumCsharpTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/ref/SeleniumCsharpTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/ref/SeleniumCsharpTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/refint/SeleniumCsharpTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumCsharpTests/obj/Debug/net6.0/refint/SeleniumCsharpTests.dll" afterDir="false" />
-    </list>
+    <list default="true" id="0a392bb8-9fda-49da-bd39-1a3184c22708" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,6 +57,7 @@
       <workItem from="1682356358419" duration="1556000" />
       <workItem from="1682371346104" duration="858000" />
       <workItem from="1682372349556" duration="157000" />
+      <workItem from="1682395735894" duration="13641000" />
     </task>
     <servers />
   </component>
